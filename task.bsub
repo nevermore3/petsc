@@ -1,0 +1,10 @@
+#BSUB -W 6:10
+#BSUB -n 128
+#BSUB -R "span[ptile=24]"
+#BSUB -q cpuII
+#BSUB -o 100.out.ilu
+#BSUB -e 100.err
+mpijob.openmpi ./out  ../data/laplace_100    -pc_type ilu  -ksp_monitor
+######-pc_type jacobi  -ksp_type cg 
+############-ksp_monitor
+#######mpijob.intelmpi ./out  ../../data/mplate/mplate.mtx
